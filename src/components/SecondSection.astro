@@ -3,22 +3,17 @@
 ---
 
 <section
-    class="second-section relative py-24 md:py-44 px-6 md:px-16 overflow-hidden bg-transparent"
+    class="second-section relative flex flex-col py-16 sm:py-24 md:py-44 px-4 sm:px-6 md:px-16 bg-transparent"
 >
     <!-- Fondo atmosférico -->
     <div class="absolute inset-0 z-0 pointer-events-none">
-        <!-- Textura de profundidad submarina -->
-        <div
-            class="absolute top-0 left-0 w-full h-full opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"
-        >
-        </div>
         <!-- Luces bioluminiscentes -->
         <div
-            class="absolute top-[10%] left-[-20%] w-[70%] h-[70%] bg-[#02735e]/12 blur-[180px] rounded-full animate-breathe"
+            class="absolute top-[10%] left-[-20%] w-[70%] h-[70%] bg-[#02735e]/25 blur-[180px] rounded-full animate-breathe"
         >
         </div>
         <div
-            class="absolute bottom-[-20%] right-[-10%] w-[55%] h-[55%] bg-[#84d9d0]/8 blur-[150px] rounded-full animate-breathe-delay"
+            class="absolute bottom-[-20%] right-[-10%] w-[55%] h-[55%] bg-[#84d9d0]/20 blur-[150px] rounded-full animate-breathe-delay"
         >
         </div>
         <!-- Líneas de profundidad -->
@@ -30,20 +25,10 @@
             class="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-[#84d9d0]/10 to-transparent"
         >
         </div>
-        <!-- Vignette -->
-        <div
-            class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_center,transparent_30%,rgba(0,13,12,0.8)_100%)]"
-        >
-        </div>
-        <!-- Scanlines -->
-        <div
-            class="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,13,12,0.04)_50%)] bg-[length:100%_4px] opacity-20"
-        >
-        </div>
     </div>
 
     <!-- Partículas flotantes (CSS puro) -->
-    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
         <div class="particle particle-1"></div>
         <div class="particle particle-2"></div>
         <div class="particle particle-3"></div>
@@ -52,14 +37,14 @@
     </div>
 
     <div
-        class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 lg:gap-28 items-center relative z-10"
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16 lg:gap-28 items-center relative z-10"
     >
         <!-- Texto izquierda -->
         <div class="flex flex-col space-y-8 order-2 md:order-1">
             
 
             <h2
-                class="text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.88] text-white section-title"
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.88] text-white section-title"
             >
                 El Horror<br />
                 <span
@@ -92,22 +77,24 @@
             </div>
 
             <p
-                class="text-[#84d9d0]/70 text-lg md:text-xl font-light leading-relaxed tracking-wide"
+                class="text-[#84d9d0]/70 text-base sm:text-lg md:text-xl font-light leading-relaxed tracking-wide"
             >
-                En las profundidades insondables del Océano Pacífico yace algo
-                que <span class="text-[#84d9d0] font-medium"
-                    >ninguna mente humana debería contemplar</span
-                >. Cthulhu lleva eones dormitando, sus sueños corrompiendo
-                lentamente la cordura de los mortales.
+                En este trepidante thriller inspirado en Lovecraft, el jugador asume el papel de Noah, un
+agente encargado de investigar <span class="text-[#84d9d0] font-medium"
+                    >la misteriosa desaparición de mineros en las profundidades del
+océano Pacífico</span
+                >. Con la ayuda de su compañero IA, Key, Noah explora la vasta y laberíntica
+prisión de R’lyeh, una antigua ciudad sumergida de proporciones ciclópeas, ciclópeas, mientras lucha por
+resistir a la locura insidiosa causada por la influencia de Cthulhu.
             </p>
 
             <p
-                class="text-[#84d9d0]/50 text-base md:text-lg font-light leading-relaxed"
+                class="text-[#84d9d0]/50 text-sm sm:text-base md:text-lg font-light leading-relaxed"
             >
-                La ciudad de R'lyeh emerge de las aguas, y con ella, la promesa
-                de una revelación que lo cambiará todo. <span
+                En el núcleo de esta pesadilla
+yace un secreto que podría <span
                     class="text-[#d91414]/80 italic"
-                    >¿Estás preparado para lo que encontrarás?</span
+                    >destrozar su comprensión de la realidad.</span
                 >
             </p>
 
@@ -169,7 +156,7 @@
     </div>
 
     <!-- Botón Compra Ya -->
-    <div class="relative z-10 flex justify-center mt-20 md:mt-28">
+    <div class="relative z-10 flex justify-center pt-16 sm:pt-20 md:pt-28">
         <a href="#comprar" class="buy-btn group relative">
             <div
                 class="absolute -inset-[1px] bg-gradient-to-r from-[#84d9d0]/0 via-[#84d9d0]/40 to-[#84d9d0]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"

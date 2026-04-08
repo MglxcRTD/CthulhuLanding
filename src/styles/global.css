@@ -37,3 +37,13 @@ body {
   background: var(--color-abyss-teal);
   border-radius: 10px;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+section > * {
+  /* Evita el colapso de márgenes que causa las rayas negras */
+  margin-top: 0;
+  margin-bottom: 0;
+}
