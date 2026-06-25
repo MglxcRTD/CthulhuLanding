@@ -45,10 +45,49 @@
   </div>
 
   <div class="relative z-30 flex flex-col items-center pb-12 sm:pb-16 md:pb-20 xl:pb-24">
-    
+
+    <!-- Contador regresivo / Cuenta atrás cósmica -->
+    <div
+      id="countdown"
+      class="flex items-end gap-3 sm:gap-5 md:gap-8 mb-4"
+      aria-label="Cuenta atrás hasta el lanzamiento"
+    >
+      <div class="flex flex-col items-center">
+        <span
+          id="cd-days"
+          class="countdown-num text-3xl sm:text-5xl md:text-6xl font-serif text-abyss-light tabular-nums"
+        >00</span>
+        <span class="countdown-label text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-white/40 mt-2">Días</span>
+      </div>
+      <span class="countdown-sep text-2xl sm:text-4xl md:text-5xl font-serif text-abyss-teal/60 self-start mt-0">:</span>
+      <div class="flex flex-col items-center">
+        <span
+          id="cd-hours"
+          class="countdown-num text-3xl sm:text-5xl md:text-6xl font-serif text-abyss-light tabular-nums"
+        >00</span>
+        <span class="countdown-label text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-white/40 mt-2">Horas</span>
+      </div>
+      <span class="countdown-sep text-2xl sm:text-4xl md:text-5xl font-serif text-abyss-teal/60 self-start mt-0">:</span>
+      <div class="flex flex-col items-center">
+        <span
+          id="cd-minutes"
+          class="countdown-num text-3xl sm:text-5xl md:text-6xl font-serif text-abyss-light tabular-nums"
+        >00</span>
+        <span class="countdown-label text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-white/40 mt-2">Minutos</span>
+      </div>
+      <span class="countdown-sep text-2xl sm:text-4xl md:text-5xl font-serif text-abyss-teal/60 self-start mt-0">:</span>
+      <div class="flex flex-col items-center">
+        <span
+          id="cd-seconds"
+          class="countdown-num text-3xl sm:text-5xl md:text-6xl font-serif text-abyss-alert tabular-nums"
+        >00</span>
+        <span class="countdown-label text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-white/40 mt-2">Segundos</span>
+      </div>
+    </div>
+
     <a
       href="#comprar"
-      class="group relative px-10 py-6 flex flex-center justify-center cursor-pointer mt-16"
+      class="group relative px-10 py-6 flex flex-center justify-center cursor-pointer mt-6"
     >
       <div class="absolute inset-0 bg-[#080808] border border-white/10 shadow-[inset_0_0_20px_rgba(0,0,0,1)] transition-all duration-700 group-hover:border-abyss-teal/50">
         <div class="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
@@ -75,6 +114,44 @@
     </a>
   </div>
 </section>
+
+<script>
+  const targetDate = new Date('2026-10-01T00:00:00').getTime();
+
+  const els = {
+    days: document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    minutes: document.getElementById('cd-minutes'),
+    seconds: document.getElementById('cd-seconds'),
+  };
+
+  const pad = (n: number) => String(n).padStart(2, '0');
+
+  function tick() {
+    const diff = targetDate - Date.now();
+
+    if (diff <= 0) {
+      if (els.days) els.days.textContent = '00';
+      if (els.hours) els.hours.textContent = '00';
+      if (els.minutes) els.minutes.textContent = '00';
+      if (els.seconds) els.seconds.textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    if (els.days) els.days.textContent = pad(days);
+    if (els.hours) els.hours.textContent = pad(hours);
+    if (els.minutes) els.minutes.textContent = pad(minutes);
+    if (els.seconds) els.seconds.textContent = pad(seconds);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
 
 <style>
   .animate-subtle-zoom {
@@ -132,5 +209,22 @@
 
   span {
     font-family: 'Georgia', serif;
+  }
+
+  /* Contador: resplandor bioluminiscente */
+  .countdown-num {
+    text-shadow: 0 0 12px rgba(132, 217, 208, 0.45);
+  }
+  #cd-seconds.countdown-num {
+    text-shadow: 0 0 12px rgba(217, 20, 20, 0.5);
+  }
+
+  /* Parpadeo orgánico de los separadores, como un latido del abismo */
+  .countdown-sep {
+    animation: sep-pulse 2s infinite ease-in-out;
+  }
+  @keyframes sep-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.9; }
   }
 </style>
